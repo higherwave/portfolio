@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<script src="./lightbox.js"></script>
+<script src="./band-motion.js"></script>
+<style>
+body{margin:0;background:#ffffff;font-family:Inter,-apple-system,"Segoe UI",sans-serif;color:#333840;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#1b61c9;text-decoration:none}
+a:hover{color:#1a3866}
+p,h1,h2,h3,ul{margin:0}
+li{margin:6px 0}
+strong{font-weight:500;color:#181d26}
+</style>
+</helmet>
+<div style="min-height:100vh;display:flex;flex-direction:column;overflow-x:clip">
+<dc-import name="SiteNav" active="cases" hint-size="100%,64px" style="position:sticky;top:0;z-index:100"></dc-import>
+<div style="max-width:1280px;width:100%;margin:0 auto;flex:1">
+<div style="position:relative;isolation:isolate;padding:72px 48px 40px;display:flex;flex-direction:column;gap:12px">
+<div aria-hidden="true" style="position:absolute;z-index:-1;top:0;bottom:0;left:780px;right:calc(min(0px, 640px - 50vw));pointer-events:none;overflow:hidden;-webkit-mask-image:linear-gradient(to right,transparent 0%,#000 40%),linear-gradient(to bottom,#000 50%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent 0%,#000 40%),linear-gradient(to bottom,#000 50%,transparent 100%);mask-composite:intersect">
+<div data-ribbon="" style="position:absolute;top:-40%;left:10%;width:34%;height:180%;background:linear-gradient(180deg,#a8d8c4 0%,#1b61c9 70%,#a8d8c4 100%);transform:rotate(-32deg);border-radius:50%;filter:blur(12px);opacity:0.75"></div>
+<div data-ribbon="" style="position:absolute;top:-40%;left:38%;width:34%;height:180%;background:linear-gradient(180deg,#8ec5f0 0%,#7c5cd6 50%,#1b61c9 100%);transform:rotate(-32deg);border-radius:50%;filter:blur(12px);opacity:0.75"></div>
+<div data-ribbon="" style="position:absolute;top:-40%;left:64%;width:30%;height:180%;background:linear-gradient(180deg,#c3b5f2 0%,#2a9d8f 55%,#a8d8c4 100%);transform:rotate(-28deg);border-radius:50%;filter:blur(12px);opacity:0.7"></div>
+</div>
+<a href="Home.dc.html#case-studies" style="font-size:14px;font-weight:500;color:#41454d">← Case Studies by Business Theme</a>
+<h1 style="font-family:'Inter Tight',sans-serif;font-weight:400;font-size:48px;line-height:1.12;color:#181d26;max-width:700px">AI-Driven Operational Intelligence</h1>
+<p style="font-size:18px;line-height:1.5">Observability redesign, marketing automation, and a new platform for CSMs</p>
+</div>
+<div style="padding:0 48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px">
+<div onClick="{{ pickA }}" style="cursor:pointer;border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:10px;background:{{ cardA }};border:1px solid {{ borderA }}">
+<div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span style="font-size:16px;font-weight:500;color:#181d26">Netflix Customer Service Observability</span><span style="background:#fcab79;color:#181d26;border-radius:6px;padding:2px 8px;font-size:13px">Netflix</span></div>
+<p style="font-size:14px;line-height:1.45">A customer support observability tool at Netflix, used by a number of groups supporting customer streaming experiences and security anomalies. The project involved extensive research and a major redesign to prepare for AI integrations.</p>
+</div>
+<div onClick="{{ pickB }}" style="cursor:pointer;border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:10px;background:{{ cardB }};border:1px solid {{ borderB }}">
+<div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span style="font-size:16px;font-weight:500;color:#181d26">6sense Marketing Automation</span><span style="background:#f4d35e;color:#181d26;border-radius:6px;padding:2px 8px;font-size:13px">6sense</span></div>
+<p style="font-size:14px;line-height:1.45">The 6sense canvas-based visual experience that helps DemandGen and Marketing Ops experts design, execute, and automate omni-channel marketing strategies with the right content for the right users at the right time - all in one place.</p>
+</div>
+<div onClick="{{ pickC }}" style="cursor:pointer;border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:10px;background:{{ cardC }};border:1px solid {{ borderC }}">
+<div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span style="font-size:16px;font-weight:500;color:#181d26">Oracle New Platform for Ops &amp; CSMs</span><span style="background:#a8d8c4;color:#181d26;border-radius:6px;padding:2px 8px;font-size:13px">Oracle</span></div>
+<p style="font-size:14px;line-height:1.45">An integrated ecosystem at Oracle for CSMs, Ops leaders, and partners that includes web, tablet, and mobile experiences. The system connects all users, provides customer 360 views, simplifies onboarding, and increases renewals.</p>
+</div>
+</div>
+
+<!-- ===== NETFLIX ===== -->
+<sc-if value="{{ csA }}" hint-placeholder-val="{{ true }}">
+<div style="padding:72px 48px 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:48px;align-items:center">
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="font-size:14px;font-weight:500;color:#41454d">Case Study 1: Netflix Customer Service Observability</div>
+<h2 style="font-family:'Inter Tight',sans-serif;font-weight:400;font-size:44px;line-height:1.12;color:#181d26">Visibility for Streaming and Security Investigations</h2>
+</div>
+<div style="aspect-ratio:4/3"><image-slot auto-ratio="" id="ai-netflix-hero" src="assets/slots/ai-netflix-hero.webp" placeholder="Netflix observability tool screenshot" radius="10"></image-slot></div>
+</div>
+<div style="margin:48px 48px 0;border:1px solid #dddddd;border-radius:10px;display:grid;grid-template-columns:minmax(120px,180px) minmax(0,1fr);font-size:15px;line-height:1.55">
+<div style="padding:20px;font-size:13px;font-weight:500;color:#41454d;border-bottom:1px solid #dddddd;background:#f8fafc">The Problem</div>
+<div style="padding:20px;border-bottom:1px solid #dddddd;color:#181d26">Users of a Netflix streaming observability tool were reporting difficultly in navigation and fragmentation when running investigations. The team supporting the system needed to prepare for both platform scale and the addition of AI for productivity enhancements.</div>
+<div style="padding:20px;font-size:13px;font-weight:500;color:#41454d;background:#f8fafc">Project Outcome</div>
+<div style="padding:20px;color:#181d26;display:flex;flex-direction:column;gap:10px"><span>The overall outcome was a cleaner, more understandable experience with reduced cognitive load that still supported advanced workflows across multiple teams.</span><span style="color:#333840">The previous system approach was treating all users as identical. Instead of choosing one extreme, I proposed a layered model (simplified defaults for most users / advanced capabilities progressively revealed for power users).</span></div>
+</div>
+<div style="padding:48px 48px 0">
+<div style="background:#f8fafc;border-radius:12px;padding:32px;display:flex;flex-wrap:wrap;gap:32px">
+<div style="flex:1 1 220px;max-width:300px;display:flex;flex-direction:column;gap:4px;position:sticky;top:24px;align-self:flex-start">
+<div style="font-size:13px;font-weight:500;color:#41454d;padding:0 14px 8px">Chapters</div>
+<div onClick="{{ go0 }}" style="cursor:pointer;padding:10px 14px;border-radius:10px;font-size:15px;line-height:1.35;color:#181d26;background:{{ k0 }};border:1px solid {{ d0 }}">Grounded Decision-Making</div>
+<div onClick="{{ go1 }}" style="cursor:pointer;padding:10px 14px;border-radius:10px;font-size:15px;line-height:1.35;color:#181d26;background:{{ k1 }};border:1px solid {{ d1 }}">Research &amp; User Themes</div>
+<div onClick="{{ go2 }}" style="cursor:pointer;padding:10px 14px;border-radius:10px;font-size:15px;line-height:1.35;color:#181d26;background:{{ k2 }};border:1px solid {{ d2 }}">IA Redesign</div>
+<div onClick="{{ go3 }}" style="cursor:pointer;padding:10px 14px;border-radius:10px;font-size:15px;line-height:1.35;color:#181d26;background:{{ k3 }};border:1px solid {{ d3 }}">Mapping Flows</div>
+<div onClick="{{ go4 }}" style="cursor:pointer;padding:10px 14px;border-radius:10px;font-size:15px;line-height:1.35;color:#181d26;background:{{ k4 }};border:1px solid {{ d4 }}">Patterns and Prototyping</div>
+<div onClick="{{ go5 }}" style="cursor:pointer;padding:10px 14px;border-radius:10px;font-size:15px;line-height:1.35;color:#181d26;background:{{ k5 }};border:1px solid {{ d5 }}">Context Aware AI Assistants</div>
+<div onClick="{{ go6 }}" style="cursor:pointer;padding:10px 14px;border-radius:10px;font-size:15px;line-height:1.35;color:#181d26;background:{{ k6 }};border:1px solid {{ d6 }}">Combining Assistants, Agents, &amp; Workflows</div>
+<div onClick="{{ go7 }}" style="cursor:pointer;padding:10px 14px;border-radius:10px;font-size:15px;line-height:1.35;color:#181d26;background:{{ k7 }};border:1px solid {{ d7 }}">Decisions and Trade-offs</div>
+</div>
+<div style="flex:999 1 420px;background:#ffffff;border-radius:10px;padding:0 40px;display:flex;flex-direction:column">
+<div style="display:flex;flex-direction:column;font-size:16px;line-height:1.6">
+<div data-ch="0" style="display:flex;flex-direction:column;gap:16px;padding:40px 0;border-bottom:1px solid #dddddd">
+<h3 style="font-family:'Inter Tight',sans-serif;font-weight:400;font-size:28px;line-height:1.2;color:#181d26">Grounded Decision-Making</h3>
+<p>The 5W1H framework provides a solid foundation for the team to work from:</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
+<div style="background:#f5e9d4;border-radius:10px;padding:16px;color:#181d26">Why are we building this? What gap is being filled or pain point being addressed?</div>
+<div style="background:#f5e9d4;border-radius:10px;padding:16px;color:#181d26">What assumption are we making about users?</div>
+<div style="background:#f5e9d4;border-radius:10px;padding:16px;color:#181d26">What do we need to know about context?</div>
+<div style="background:#f5e9d4;border-radius:10px;padding:16px;color:#181d26">How will we measure this?</div>
+</div>
+<p><strong>The highlights for this project were:</strong></p>
+<ul style="padding-left:20px">
+<li>A UX review showed signs of <strong>cognitive overload and inconsistencies</strong> , along with reported gaps in understanding workflows.</li>
+<li>The system needed a clear path toward more <strong>usability, scalability, and AI-driven patterns</strong> that could be used across the platform.</li>
+<li>The initial assumptions to be verified were that the focus was more on <strong>deeper work, clarity, and streamlining workflows</strong> .</li>
+<li>Measurement would come from both <strong>telemetry data</strong> , in terms of what’s actually being used, and qualitative feedback from users on the overall experience (ie. time saved, productivity enhancements, ease of use, etc.)</li>
+</ul>
+</div>
+<div data-ch="1" style="display:flex;flex-direction:column;gap:16px;padding:40px 0;border-bottom:1px solid #dddddd">
+<h3 style="font-family:'Inter Tight',sans-serif;font-weight:400;font-size:28px;line-height:1.2;color:#181d26">Research &amp; User Themes</h3>
+<p>Using telemetry analytics for the app, I created a list of power users (combined with short bio’s from Slack). Together, these gave me 18 users to meet with, across groups.</p>
+<p><strong>I found the following themes (repeating patterns across groups):</strong></p>
+<div style="display:flex;flex-direction:column;border-top:1px solid #dddddd">
+<div style="padding:12px 0;border-bottom:1px solid #dddddd"><strong>Streaming Context:</strong> Users could locate a stream in question, but usually had to dig deeper for better context around the ‘before and after‘ (was the issue related to a device, the network, or user behavior)?</div>
+<div style="padding:12px 0;border-bottom:1px solid #dddddd">Docs and tooltips were missing or needed updates</div>
+<div style="padding:12px 0;border-bottom:1px solid #dddddd">Cognitive overload was bad for all - but a major roadblock for new user onboarding</div>
+<div style="padding:12px 0;border-bottom:1px solid #dddddd">Data retention issues were a bottleneck when needing to return to data later.</div>
+<div style="padding:12px 0;border-bottom:1px solid #dddddd"><strong>Navigation:</strong> The navigation needed to be redesigned for scale (with AI assistants in mind).</div>
+<div style="padding:12px 0;border-bottom:1px solid #dddddd"><strong>Patterns:</strong> There were few standards or reusable patterns being used.</div>
+</div>
+</div>
+<div data-ch="2" style="display:flex;flex-direction:column;gap:16px;padding:40px 0;border-bottom:1px solid #dddddd">
+<h3 style="font-family:'Inter Tight',sans-serif;font-weight:400;font-size:28px;line-height:1.2;color:#181d26">IA Redesign</h3>
+<p>The redesign of the information architecture took into account contexts that were most used, used occasionally, or never used (sometimes buried), as well as new objects that were coming into play in the roadmap.</p>
+<p>This sitemap also provided a rudimentary “‘before and after‘ picture for Engineers to help in creating a more detailed change log.</p>
+<p><strong>I used the following approach:</strong></p>
+<ul style="padding-left:20px">
+<li><strong>Preserve the location of the most frequently used navigation</strong> . This approach saved real estate and consolidated views into like groups - without disruption to existing flows.</li>
+<li><strong>Reorganize</strong> lower visibility logs and utilities into more logical groupings.</li>
+<li><strong>Add a new high profile object</strong> to the top level of the navigation, leveraging the format from an existing page-level pattern (the “User“ object that would track an individual users behavior and viewing history).</li>
+</ul>
+<div style="aspect-ratio:16/8"><image-slot auto-ratio="" id="ai-netflix-ia" src="assets/slots/ai-netflix-ia.webp" placeholder="Sitemap — before and after" radius="10"></image-slot></div>
+</div>
+<div data-ch="3" style="display:flex;flex-direction:column;gap:16px;padding:40px 0;border-bottom:1px solid #dddddd">
+<h3 style="font-family:'Inter Tight',sans-serif;font-weight:400;font-size:28px;line-height:1.2;color:#181d26">Mapping Flows</h3>
+<p>Mapping detailed workflows for common, repetitive use cases happened in 3 parts.</p>
+<p><strong>Mapping flows in progressive depth:</strong></p>
+<ul style="padding-left:20px">
+<li>The first was strictly based on <strong>user feedback</strong>. Even this high-level view gave me insight into use cases and where to focus next.</li>
+<li><strong>Claude research:</strong> I knew this effort would eventually be used as deterministic data to feed to an AI assistant to perform an investigation for a user ( as well as the complexity of many of these investigations ), so I leveraged Claude for research (which referenced GitHub, Slack, Google docs, and other repositories) to help me build detailed flows.</li>
+<li><strong>Validation:</strong> The third phase was to get users from each group to validate or correct these flows (a much easier starting point for users with limited time). This happened both in meetings and async on Slack.</li>
+</ul>
+<div style="aspect-ratio:16/8"><image-slot auto-ratio="" id="ai-netflix-flows" src="assets/slots/ai-netflix-flows.webp" placeholder="Workflow maps" radius="10"></image-slot></div>
+</div>
+<div data-ch="4" style="display:flex;flex-direction:column;gap:16px;padding:40px 0;border-bottom:1px solid #dddddd">
+<h3 style="font-family:'Inter Tight',sans-serif;font-weight:400;font-size:28px;line-height:1.2;color:#181d26">Patterns and Prototyping</h3>
+<p><strong>The approach for usable, scalable patterns was:</strong></p>
+<ul style="padding-left:20px">
+<li><strong>Create a menu (with submenu) that could be pinned.</strong> Pinning the menu - and persisting that state with cookies across sessions - gave users a choice of less clicks or more real estate.</li>
+<li><strong>Reducing Cognitive Load</strong> was addressed in 3 primary ways:
+<ul style="padding-left:20px">
+<li>Keeping a unique ID by default by placing all other object metadata under a tooltip</li>
+<li>Breaking up content for complex pages that included tabs inside of tabs inside of tabs. Resulting pages were easier to read and required less vertical scrolling.</li>
+<li>Consistent component placement (page-level actions, CRUD functions, search, filters, and more).</li>
+</ul>
+</li>
+<li><strong>Preventing disruption to existing users.</strong> Customization of the new menu (from the original design system variants) was needed to avoid disorientation for users (used to scanning top-level tabs to find the log needed). The DS version of the vertical toolbar had no label variant. We added labels to bridge the gap between old and new.</li>
+</ul>
+<div style="aspect-ratio:16/8"><image-slot auto-ratio="" id="ai-netflix-patterns" src="assets/slots/ai-netflix-patterns.webp" placeholder="Pinned menu and page patterns" radius="10"></image-slot></div>
+</div>
+<div data-ch="5" style="display:flex;flex-direction:column;gap:16px;padding:40px 0;border-bottom:1px solid #dddddd">
+<h3 style="font-family:'Inter Tight',sans-serif;font-weight:400;font-size:28px;line-height:1.2;color:#181d26">Context Aware AI Assistants</h3>
+<p>Aside from initial help chat (RAG system), it became clear that users needed an assistant that <strong>immediately understood context based on the trigger</strong> (button or link) it was launched from (a common pain point in playback stream investigations).</p>
+<p>In this design the user can locate the stream in question, select “Show Stream Context“ from the actions menu, and the system could immediately provide:</p>
+<ul style="padding-left:20px">
+<li>Broader context around a wider timeframe (a few hours before and after the stream).</li>
+<li>What else was happening across devices, the network, user actions, etc?</li>
+<li>A simple output to sum up a conclusion that would have taken a user much more time to investigate.</li>
+</ul>
+<div style="aspect-ratio:16/8"><image-slot auto-ratio="" id="ai-netflix-context" src="assets/slots/ai-netflix-context.webp" placeholder="Show Stream Context assistant" radius="10"></image-slot></div>
+</div>
+<div data-ch="6" style="display:flex;flex-direction:column;gap:16px;padding:40px 0;border-bottom:1px solid #dddddd">
+<h3 style="font-family:'Inter Tight',sans-serif;font-weight:400;font-size:28px;line-height:1.2;color:#181d26">Combining Assistants, Agents, &amp; Workflows</h3>
+<p>The previous workflow mapping would become essential for this stage of the design - reviewing strategies with the team for leveraging deterministic workflow data to give an assistant a foundation for running investigations.</p>
+<p><strong>The workflow assistant would work as follows:</strong></p>
+<ol style="margin:0;padding-left:22px">
+<li>The system recognizes the logged in user and provides prewritten prompts (a prompt library).</li>
+<li>The user selects a prompt (use case).</li>
+<li>The user adds other required criteria (typically an ID and time window).</li>
+<li>The system then knows which logs, fields, and values to review - as well as how to interpret the values it finds.</li>
+<li>The assistant displays a recommended resolution (waiting for human approval).</li>
+<li>The user can choose to trust the response or leverage the source links provided for verification.</li>
+</ol>
+<div style="background:#f5e9d4;border-radius:10px;padding:20px;color:#181d26"><strong>FUTURE STATE:</strong> The assistant can eventually be instructed to close a case and complete the workflow by submitting a case description and resolution to Jira or Zendesk</div>
+<div style="aspect-ratio:16/8"><image-slot auto-ratio="" id="ai-netflix-agents" src="assets/slots/ai-netflix-agents.webp" placeholder="Workflow assistant" radius="10"></image-slot></div>
+</div>
+<div data-ch="7" style="display:flex;flex-direction:column;gap:16px;padding:40px 0;border-bottom:1px solid #dddddd">
+<h3 style="font-family:'Inter Tight',sans-serif;font-weight:400;font-size:28px;line-height:1.2;color:#181d26">Decisions and Trade-offs</h3>
+<ul style="padding-left:20px">
+<li><strong>Find the Right Balance.</strong> We preserved the most frequently used navigation items in the their existing locations and avoided disorienting experienced users, while reorganizing lower visibility logs and utilities into more logical groupings.</li>
+<li><strong>Designing for Scale.</strong> The approach to action buttons, metadata, page-level patterns, and breaking up complex content into individual pages all played into a cleaner, more intuitive, and more scalable experience.</li>
+<li><strong>Approach to AI.</strong> Assistant features were designed progressively as Engineers and Data Scientists had more tested functionality to offer: (1) RAG-style help (2) context-aware searches (3) automated investigations.</li>
+<li><strong>Priorities:</strong> The project was broken into 3 primary phases:
+<ul style="padding-left:20px">
+<li><strong>Foundation:</strong> Set up the navigation, layout, and interactions to be more usable and scalable with patterns that could apply platform-wide.</li>
+<li><strong>Content audits:</strong> Deprecate logs that are no longer used and look for redundancies.</li>
+<li><strong>AI &amp; Automation:</strong> Layer on AI assistants for improved productivity and to stitch together any disparate logs, metrics, and traces into connected and coherent workflows.</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div style="padding:32px 0 40px;display:flex;justify-content:flex-end">
+<div onClick="{{ nextCase }}" style="cursor:pointer;background:#181d26;color:#ffffff;font-size:16px;font-weight:500;padding:14px 22px;border-radius:12px;white-space:nowrap">{{ nextCaseLabel }}</div>
+</div>
+</div>
+</div>
+</div>
+</sc-if>
+
+<!-- ===== 6SENSE ===== -->
+<sc-if value="{{ csB }}" hint-placeholder-val="{{ false }}">
+<div style="padding:72px 48px 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:48px;align-items:center">
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="font-size:14px;font-weight:500;color:#41454d">Case Study 2: 6sense Intelligent Workflows</div>
+<h2 style="font-family:'Inter Tight',sans-serif;font-weight:400;font-size:44px;line-height:1.12;color:#181d26">Omni-channel Marketing Automation</h2>
+</div>
+<div style="aspect-ratio:4/3"><image-slot auto-ratio="" id="ai-6sense-hero" src="assets/slots/ai-6sense-hero.webp" placeholder="6sense workflow canvas screenshot" radius="10"></image-slot></div>
+</div>
+<div style="margin:48px 48px 0;border:1px solid #dddddd;border-radius:10px;display:grid;grid-template-columns:minmax(120px,180px) minmax(0,1fr);font-size:15px;line-height:1.55">
+<div style="padding:20px;font-size:13px;font-weight:500;color:#41454d;border-bottom:1px solid #dddddd;background:#f8fafc">The Problem</div>
+<div style="padding:20px;border-bottom:1px solid #dddddd;color:#181d26">The existing product provided simple wizards to allow any platform user the ability to automate marketing-related tasks on a daily or weekly cadence but the product’s adoption and engagement was much lower than expected.</div>
+<div style="padding:20px;font-size:13px;font-weight:500;color:#41454d;background:#f8fafc">Project Outcome</div>
+<div style="padding:20px;color:#181d26;display:flex;flex-direction:column;gap:10px"><span>The research ultimately showed that users preferred to build more complex workflows with large node structures. Because we had intentionally designed for progressive scalability instead of prematurely optimizing around assumptions, the system adapted much more cleanly as complexity increased.</span><span style="color:#333840">It provided a path toward better adoption, increased revenue, allowed users to start small and scale as needed, and came with the added benefit of simplifying the overall platform experience .</span></div>
+</div>
+<div style="padding:48px 48px 0">
+<div style="background:#f8fafc;border-radius:12px;padding:32px;display:flex;flex-wrap:wrap;gap:32px">
+<div style="flex:1 1 220px;max-width:300px;display:flex;flex-direction:column;gap:4px;position:sticky;top:24px;align-self:flex-start">
+<div style="font-size:13px;font-weight:500;color:#41454d;padding:0 14px 8px">Chapters</div>
+<div onClick="{{ go0 }}" style="cursor:pointer;padding:10px 14px;border-radius:10px;font-size:15px;line-height:1.35;color:#181d26;background:{{ k0 }};border:1px solid {{ d0 }}">Research and Take-aways</div>
+<div onClick="{{ go1 }}" style="cursor:pointer;padding:10px 14px;border-radius:10px;font-size:15px;line-height:1.35;color:#181d26;background:{{ k1 }};border:1px solid {{ d1 }}">Ideation</div>
+<div onClick="{{ go2 }}" style="cursor:pointer;padding:10px 14px;border-radius:10px;font-size:15px;line-height:1.35;color:#181d26;background:{{ k2 }};border:1px solid {{ d2 }}">Pricing Models</div>
+<div onClick="{{ go3 }}" style="cursor:pointer;padding:10px 14px;border-radius:10px;font-size:15px;line-height:1.35;color:#181d26;background:{{ k3 }};border:1px solid {{ d3 }}">Project Foundations</div>
+<div onClick="{{ go4 }}" style="cursor:pointer;padding:10px 14px;border-radius:10px;font-size:15px;line-height:1.35;color:#181d26;background:{{ k4 }};border:1px solid {{ d4 }}">Node Panel Designs</div>
+<div onClick="{{ go5 }}" style="cursor:pointer;padding:10px 14px;border-radius:10px;font-size:15px;line-height:1.35;color:#181d26;background:{{ k5 }};border:1px solid {{ d5 }}">Go-to-Market Templates</div>
+<div onClick="{{ go6 }}" style="cursor:pointer;padding:10px 14px;border-radius:10px;font-size:15px;line-height:1.35;color:#181d26;background:{{ k6 }};border:1px solid {{ d6 }}">Alpha, Beta, and Usability Testing</div>
+<div onClick="{{ go7 }}" style="cursor:pointer;padding:10px 14px;border-radius:10px;font-size:15px;line-height:1.35;color:#181d26;background:{{ k7 }};border:1px solid {{ d7 }}">Value Added. Lessons Learned.</div>
+</div>
+<div style="flex:999 1 420px;background:#ffffff;border-radius:10px;padding:0 40px;display:flex;flex-direction:column">
+<div style="display:flex;flex-direction:column;font-size:16px;line-height:1.6">
+<div data-ch="0" style="display:flex;flex-direction:column;gap:16px;padding:40px 0;border-bottom:1px solid #dddddd">
+<h3 style="font-family:'Inter Tight',sans-serif;font-weight:400;font-size:28px;line-height:1.2;color:#181d26">Research and Take-aways</h3>
+<div style="aspect-ratio:16/8"><image-slot auto-ratio="" id="ai-6sense-product" src="assets/slots/ai-6sense-product.webp" placeholder="The Product" radius="10"></image-slot></div>
+<p>Talking with MarketingOps and DemandGen users, we wanted to know if low adoption was based on limited functionality, price, or being leery of trusting automation without constant visibility into the impact of specific actions.</p>
+<p><strong>Users told us the following:</strong></p>
+<ul style="padding-left:20px">
+<li>They didn’t know when to engage <strong>small automation routines</strong> , disconnected from their campaign strategies.</li>
+<li>Users need <strong>more visibility</strong> into what the system is doing.</li>
+<li>They were confused by how to <strong>measure success</strong>.</li>
+<li>They wanted better <strong>connectivity across channels</strong>, not just in Orchestrations but across the platform.</li>
+</ul>
+</div>
+<div data-ch="1" style="display:flex;flex-direction:column;gap:16px;padding:40px 0;border-bottom:1px solid #dddddd">
+<h3 style="font-family:'Inter Tight',sans-serif;font-weight:400;font-size:28px;line-height:1.2;color:#181d26">Ideation</h3>
+<p>From an initial workshop to ongoing design iterations, we moved through a number of design formats. The three main contenders are shown to the right, along with pros and cons.</p>
+<p>The decision tree canvas format would provide many benefits over other formats (users can start simple, scale as needed, and can branch logic in multiple ways). It provides extreme flexibility in how users design their marketing strategies.</p>
+<p>Eventually, we could connect contexts across the platform that previously existed in silos.</p>
+<div style="aspect-ratio:16/8"><image-slot auto-ratio="" id="ai-6sense-ideation" src="assets/slots/ai-6sense-ideation.webp" placeholder="Three design formats with pros and cons" radius="10" style="width: 753px; height: 496px"></image-slot></div>
+</div>
+<div data-ch="2" style="display:flex;flex-direction:column;gap:16px;padding:40px 0;border-bottom:1px solid #dddddd">
+<h3 style="font-family:'Inter Tight',sans-serif;font-weight:400;font-size:28px;line-height:1.2;color:#181d26">Pricing Models</h3>
+<p>After many rounds of pricing discussions, the strategy was to provide the app for “free” along with the ABM marketing package. Customers choose a specific tier that determines the number of credits they receive.</p>
+<p>Even though each action you take in a workflow consumes credits, customers can start building their workflow with only one or two actions. They can run on-demand tests or automate the workflows daily or weekly.</p>
+<p>The model removes barriers toward adoption and allows customers to start small and scale as they become more comfortable with the app.</p>
+</div>
+<div data-ch="3" style="display:flex;flex-direction:column;gap:16px;padding:40px 0;border-bottom:1px solid #dddddd">
+<h3 style="font-family:'Inter Tight',sans-serif;font-weight:400;font-size:28px;line-height:1.2;color:#181d26">Project Foundations</h3>
+<p>I set up libraries of mockups and prototypes for those elements that contained a large number of moving parts - and would create mass confusion without a high amount of organization.</p>
+<p>From these libraries, engineers and Product Managers could quickly view any play (workflow template based on a marketing strategy) and the node configuration panels for each action a user could take.</p>
+<p>This made communication, iterations, and updates possible in a complex, fast-moving project with multiple stakeholders.</p>
+<div style="aspect-ratio:16/8"><image-slot auto-ratio="" id="ai-6sense-libraries" src="assets/slots/ai-6sense-libraries.webp" placeholder="Mockup and prototype libraries" radius="10"></image-slot></div>
+</div>
+<div data-ch="4" style="display:flex;flex-direction:column;gap:16px;padding:40px 0;border-bottom:1px solid #dddddd">
+<h3 style="font-family:'Inter Tight',sans-serif;font-weight:400;font-size:28px;line-height:1.2;color:#181d26">Node Panel Designs</h3>
+<p>Node Config Panels were needed for 80+ nodes. Interactive Figma components and Auto Layout were used for multiple iterations and fast updates.</p>
+<ul style="padding-left:20px">
+<li>Setting layout standards early helped maintain consistency and simplified development.</li>
+<li>Consistent labeling and terminology were established</li>
+<li>Node menus were organized in a logical sequence from most to least common - and was verified with several beta users.</li>
+</ul>
+<p>I started minimalist with visual design until we had customer feedback telling us otherwise. We weren’t yet sure how complex workflows would become and I didn’t want visual clutter to weigh the experience down.</p>
+<div style="aspect-ratio:16/8"><image-slot auto-ratio="" id="ai-6sense-nodes" src="assets/slots/ai-6sense-nodes.webp" placeholder="Node config panels" radius="10"></image-slot></div>
+</div>
+<div data-ch="5" style="display:flex;flex-direction:column;gap:16px;padding:40px 0;border-bottom:1px solid #dddddd">
+<h3 style="font-family:'Inter Tight',sans-serif;font-weight:400;font-size:28px;line-height:1.2;color:#181d26">Go-to-Market Templates</h3>
+<p>Leveraging wireframing tools, such as Miro and Figjam, we iterated on templates that were primarily focused on the most common GTM strategies.</p>
+<p>These iterations also help us work through.</p>
+<ul style="padding-left:20px">
+<li>Canvas and Node validation</li>
+<li>Template selection patterns</li>
+<li>Onboarding guides in Pendo</li>
+<li>A roadmap for adding in-app help content and videos</li>
+</ul>
+<div style="aspect-ratio:16/8"><image-slot auto-ratio="" id="ai-6sense-gtm" src="assets/slots/ai-6sense-gtm.webp" placeholder="GTM template wireframes" radius="10"></image-slot></div>
+</div>
+<div data-ch="6" style="display:flex;flex-direction:column;gap:16px;padding:40px 0;border-bottom:1px solid #dddddd">
+<h3 style="font-family:'Inter Tight',sans-serif;font-weight:400;font-size:28px;line-height:1.2;color:#181d26">Alpha, Beta, and Usability Testing</h3>
+<p>Meeting weekly with over 30 beta users to go through their flows and any any issues they encountered, we were able to make most updates within the next sprint. We also conducted usability testing with 11 users to address any final questions or concerns around interactions and content.</p>
+<p><strong>The app was ready for GA, with the following feedback:</strong></p>
+<ul style="padding-left:20px">
+<li>All customers loved the visual canvas and the ability to stitch together everything in the platform that was previously fragmented (design, update, and automate their strategies in one place).</li>
+<li>New users highlighted the need for more guidance (an area for AI to add a number of enhancements).</li>
+<li>Continued feedback from users (qualitative) and Pendo analytics (quantitative) data was set up to monitor where guidance would be needed most in future releases and to hone-in on future participants for usability tests.</li>
+</ul>
+</div>
+<div data-ch="7" style="display:flex;flex-direction:column;gap:16px;padding:40px 0;border-bottom:1px solid #dddddd">
+<h3 style="font-family:'Inter Tight',sans-serif;font-weight:400;font-size:28px;line-height:1.2;color:#181d26">Value Added. Lessons Learned.</h3>
+<p>The Beta period became more than just a method of getting feedback prior to GA.</p>
+<p>Because beta users are given free credits in order to try out the tool, they can run their “tests“ as live production campaigns - and benefit immediately from the testing. So, unlike many passive beta testers, these users were actively engaged.</p>
+<p>While we already had basic AI chat capabilities for searching help docs, we needed to expand that with deep linking and recommendations as a next step.</p>
+</div>
+</div>
+<div style="padding:32px 0 40px;display:flex;justify-content:flex-end">
+<div onClick="{{ nextCase }}" style="cursor:pointer;background:#181d26;color:#ffffff;font-size:16px;font-weight:500;padding:14px 22px;border-radius:12px;white-space:nowrap">{{ nextCaseLabel }}</div>
+</div>
+</div>
+</div>
+</div>
+</sc-if>
+
+<!-- ===== ORACLE ===== -->
+<sc-if value="{{ csC }}" hint-placeholder-val="{{ false }}">
+<div style="padding:72px 48px 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:48px;align-items:center">
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="font-size:14px;font-weight:500;color:#41454d">Case Study 3: Oracle Customer Lifecycle Management</div>
+<h2 style="font-family:'Inter Tight',sans-serif;font-weight:400;font-size:44px;line-height:1.12;color:#181d26">From onboarding to renewal</h2>
+</div>
+<div style="aspect-ratio:4/3"><image-slot auto-ratio="" id="ai-oracle-hero" src="assets/slots/ai-oracle-hero.webp" placeholder="Oracle CLM screenshot" radius="10"></image-slot></div>
+</div>
+<div style="margin:48px 48px 0;border:1px solid #dddddd;border-radius:10px;display:grid;grid-template-columns:minmax(120px,180px) minmax(0,1fr);font-size:15px;line-height:1.55">
+<div style="padding:20px;font-size:13px;font-weight:500;color:#41454d;border-bottom:1px solid #dddddd;background:#f8fafc">The Problem</div>
+<div style="padding:20px;border-bottom:1px solid #dddddd;color:#181d26">The primary focus of CSMs was related to monitoring customer usage and helping them throughout the contract period. However, their primary tools were spreadsheets and half a dozen other internal tools. They needed one system to bring it all together, prevent churn, and help Oracle compete against Amazon, Microsoft, and Google.</div>
+<div style="padding:20px;font-size:13px;font-weight:500;color:#41454d;background:#f8fafc">Outcomes</div>
+<div style="padding:20px;color:#181d26;display:flex;flex-direction:column;gap:10px"><span>The ecosystem that our team created laid a foundation that could be scaled to provide much more value, but the first year of the project gained the following benefits for users (and the company):</span>
+<ul style="padding-left:20px;color:#333840"><li><strong>Adoption of 4000 users in one year</strong></li><li>One source of truth for all data (no more spreadsheets)</li><li>At-a-glance views of customer usage (current and trends)</li><li>Improved visibility and connectivity across internal users and external partners</li><li>Reduced time to onboard</li></ul></div>
+</div>
+<div style="padding:48px 48px 0">
+<div style="background:#f8fafc;border-radius:12px;padding:32px;display:flex;flex-wrap:wrap;gap:32px">
+<div style="flex:1 1 220px;max-width:300px;display:flex;flex-direction:column;gap:4px;position:sticky;top:24px;align-self:flex-start">
+<div style="font-size:13px;font-weight:500;color:#41454d;padding:0 14px 8px">Chapters</div>
+<div onClick="{{ go0 }}" style="cursor:pointer;padding:10px 14px;border-radius:10px;font-size:15px;line-height:1.35;color:#181d26;background:{{ k0 }};border:1px solid {{ d0 }}">Research and Take-aways</div>
+<div onClick="{{ go1 }}" style="cursor:pointer;padding:10px 14px;border-radius:10px;font-size:15px;line-height:1.35;color:#181d26;background:{{ k1 }};border:1px solid {{ d1 }}">Starting Points</div>
+<div onClick="{{ go2 }}" style="cursor:pointer;padding:10px 14px;border-radius:10px;font-size:15px;line-height:1.35;color:#181d26;background:{{ k2 }};border:1px solid {{ d2 }}">Monetization Model</div>
+<div onClick="{{ go3 }}" style="cursor:pointer;padding:10px 14px;border-radius:10px;font-size:15px;line-height:1.35;color:#181d26;background:{{ k3 }};border:1px solid {{ d3 }}">MVP Use Case #1: Onboarding Checklists</div>
+<div onClick="{{ go4 }}" style="cursor:pointer;padding:10px 14px;border-radius:10px;font-size:15px;line-height:1.35;color:#181d26;background:{{ k4 }};border:1px solid {{ d4 }}">MVP Use Case #2: Usage Monitoring</div>
+<div onClick="{{ go5 }}" style="cursor:pointer;padding:10px 14px;border-radius:10px;font-size:15px;line-height:1.35;color:#181d26;background:{{ k5 }};border:1px solid {{ d5 }}">MVP Use Case #3: Event Tracking</div>
+<div onClick="{{ go6 }}" style="cursor:pointer;padding:10px 14px;border-radius:10px;font-size:15px;line-height:1.35;color:#181d26;background:{{ k6 }};border:1px solid {{ d6 }}">Connecting Partners to the Single Source of Truth</div>
+<div onClick="{{ go7 }}" style="cursor:pointer;padding:10px 14px;border-radius:10px;font-size:15px;line-height:1.35;color:#181d26;background:{{ k7 }};border:1px solid {{ d7 }}">Mobile Design for Always On Functionality</div>
+<div onClick="{{ go8 }}" style="cursor:pointer;padding:10px 14px;border-radius:10px;font-size:15px;line-height:1.35;color:#181d26;background:{{ k8 }};border:1px solid {{ d8 }}">Value Added. Lessons Learned</div>
+</div>
+<div style="flex:999 1 420px;background:#ffffff;border-radius:10px;padding:0 40px;display:flex;flex-direction:column">
+<div style="display:flex;flex-direction:column;font-size:16px;line-height:1.6">
+<div data-ch="0" style="display:flex;flex-direction:column;gap:16px;padding:40px 0;border-bottom:1px solid #dddddd">
+<h3 style="font-family:'Inter Tight',sans-serif;font-weight:400;font-size:28px;line-height:1.2;color:#181d26">Research and Take-aways</h3>
+<p>Since CSMs were a new role to Oracle (many coming into the company through acquisitions), no current systems were dedicated to the role and most customer data was stored on spreadsheets or required CSMs to navigate a labyrinth of Oracle homegrown apps.</p>
+<p>After a few weeks of almost constant meetings, across CSMs and Ops - and reviewing differences in workflows across services and regions, themes started to emerge:</p>
+<ul style="padding-left:20px">
+<li>CSMs typically manage between 10 and 20 customers at any given time.</li>
+<li>Everyone needs one data source (one source of truth).</li>
+<li>Onboarding needs to be simplified with better visibility for all stakeholders.</li>
+<li>Easy monitoring of customer usage was the highest priority.</li>
+<li>CSMs and Ops needed better visibility into consulting partners.</li>
+</ul>
+</div>
+<div data-ch="1" style="display:flex;flex-direction:column;gap:16px;padding:40px 0;border-bottom:1px solid #dddddd">
+<h3 style="font-family:'Inter Tight',sans-serif;font-weight:400;font-size:28px;line-height:1.2;color:#181d26">Starting Points</h3>
+<p><strong>After initial research, two primary facts became clear:</strong></p>
+<ul style="padding-left:20px">
+<li>Users were not mandated to use our app if it didn’t meet their needs, which made adoption critical.</li>
+<li>We would need to move quickly with very few established guidelines and a development team that was learning the code as they were developing it for an enterprise app.</li>
+</ul>
+<p>I created strategies for a starting point to the experience within the requirements, ambiguity, and short timeline:</p>
+<ul style="padding-left:20px">
+<li>Leverage existing tools and patterns where possible, before creating your own (Oracle JET javascript framework, which included responsive components, and ALTA UI visual libraries).</li>
+<li>Create simple layout and navigation patterns that improve on the SaaS group’s information architecture.</li>
+<li>Focus on simple default views that can be accessed with very few clicks.</li>
+<li>Provide rolled-up “quick views“ of any critical or common information.</li>
+</ul>
+<div style="aspect-ratio:16/8"><image-slot auto-ratio="" id="ai-oracle-starting" src="assets/slots/ai-oracle-starting.webp" placeholder="Starting point layouts and navigation" radius="10"></image-slot></div>
+</div>
+<div data-ch="2" style="display:flex;flex-direction:column;gap:16px;padding:40px 0;border-bottom:1px solid #dddddd">
+<h3 style="font-family:'Inter Tight',sans-serif;font-weight:400;font-size:28px;line-height:1.2;color:#181d26">Monetization Model</h3>
+<p>Oracle’s new “Universal Subscriptions“ model allowed customers to choose a monthly spend limit and contract length. We knew CSMs needed to monitor (and be alerted on) usage from the perspective of these new pricing buckets.</p>
+<p>While we were creating the app for internal use, we kept our eye on the possibility of CLM becoming a ‘marketable SaaS product’ since an app dedicated to CSMs was not currently offered at Oracle.</p>
+</div>
+<div data-ch="3" style="display:flex;flex-direction:column;gap:16px;padding:40px 0;border-bottom:1px solid #dddddd">
+<h3 style="font-family:'Inter Tight',sans-serif;font-weight:400;font-size:28px;line-height:1.2;color:#181d26">MVP Use Case #1: Onboarding Checklists</h3>
+<p>With very few exceptions, CSMs rarely needed to spend an excessive amount of time with deeper dives. A majority of their primary tasks (the biggest value ad for customers) was in quickly monitoring usage, health, key events, and onboarding statuses.</p>
+<p><strong>The first feature (and design goal) was:</strong></p>
+<ul style="padding-left:20px">
+<li>Get CSMs off of spreadsheets and on to a dedicated UI with a shared data source.</li>
+<li>As with all features for the first release, start minimalist (using simple patterns and content that is fast and easy to access).</li>
+</ul>
+<div style="aspect-ratio:16/8"><image-slot auto-ratio="" id="ai-oracle-onboarding" src="assets/slots/ai-oracle-onboarding.webp" placeholder="Onboarding checklists" radius="10"></image-slot></div>
+</div>
+<div data-ch="4" style="display:flex;flex-direction:column;gap:16px;padding:40px 0;border-bottom:1px solid #dddddd">
+<h3 style="font-family:'Inter Tight',sans-serif;font-weight:400;font-size:28px;line-height:1.2;color:#181d26">MVP Use Case #2: Usage Monitoring</h3>
+<p>Through continual collaboration after project kickoff, I suggested a simple format that would provide the highest priority CSM requests for the first release:</p>
+<p><strong>This expandable row content provides:</strong></p>
+<ul style="padding-left:20px">
+<li>At a glance view of where the customer is now</li>
+<li>A trend of the last few months. Issues? Do they need more credits?</li>
+<li>Financial rollups in local currency and constant dollar</li>
+<li>Notifications tied to the more important attributes (&gt;80% usage, etc.)</li>
+<li>A method of drilling deeper (when those views become available in future releases)</li>
+</ul>
+<div style="aspect-ratio:16/8"><image-slot auto-ratio="" id="ai-oracle-usage" src="assets/slots/ai-oracle-usage.webp" placeholder="Usage monitoring rows" radius="10"></image-slot></div>
+</div>
+<div data-ch="5" style="display:flex;flex-direction:column;gap:16px;padding:40px 0;border-bottom:1px solid #dddddd">
+<h3 style="font-family:'Inter Tight',sans-serif;font-weight:400;font-size:28px;line-height:1.2;color:#181d26">MVP Use Case #3: Event Tracking</h3>
+<p>The eventual goal with events and notifications was to have an in-app “Notification Center“ that provided access to all notifications, with search, filter, and foldering options.</p>
+<p>This simple timeline view, accessed with one click from the Customers list, provided a few higher priority events to lay the foundation for future work.</p>
+<div style="display:flex;flex-wrap:wrap;gap:8px;font-size:14px;font-weight:500;color:#181d26">
+<span style="background:#f5e9d4;border-radius:6px;padding:6px 10px">Order Booked or Changed</span>
+<span style="background:#f5e9d4;border-radius:6px;padding:6px 10px">Subscription is past due</span>
+<span style="background:#f5e9d4;border-radius:6px;padding:6px 10px">Fail to Pay or Suspension</span>
+<span style="background:#f5e9d4;border-radius:6px;padding:6px 10px">Expiring soon</span>
+<span style="background:#f5e9d4;border-radius:6px;padding:6px 10px">Overage (current month)</span>
+<span style="background:#f5e9d4;border-radius:6px;padding:6px 10px">Over 80 usage (current month)</span>
+</div>
+<div style="aspect-ratio:16/8"><image-slot auto-ratio="" id="ai-oracle-events" src="assets/slots/ai-oracle-events.webp" placeholder="Event timeline" radius="10"></image-slot></div>
+</div>
+<div data-ch="6" style="display:flex;flex-direction:column;gap:16px;padding:40px 0;border-bottom:1px solid #dddddd">
+<h3 style="font-family:'Inter Tight',sans-serif;font-weight:400;font-size:28px;line-height:1.2;color:#181d26">Connecting Partners to the Single Source of Truth</h3>
+<p>Because many large enterprise customers were onboarded by large consulting partners like Deloitte and Accenture, CSMs needed a way to bring them into the fold so that any project updates reflected immediately in the CLM database.</p>
+<p>The team spoke with a few project managers from these partners to understand what core data they needed, what they should have access to, and a little bit about their environment. When learning that many leverage tablets or touch-screen laptops, I quickly redesigned the existing app into a tablet-friendly format by:</p>
+<ul style="padding-left:20px">
+<li>Documenting what data could be exposed and what needed to be editable (statuses, notes, etc.)</li>
+<li>Moved to a horizontal nav to gain width for tablets (landscape orientation)</li>
+<li>Simplified both list and detail screens</li>
+<li>Began conversations for better personalization in future releases</li>
+</ul>
+<div style="aspect-ratio:16/8"><image-slot auto-ratio="" id="ai-oracle-tablet" src="assets/slots/ai-oracle-tablet.webp" placeholder="Tablet partner app" radius="10"></image-slot></div>
+</div>
+<div data-ch="7" style="display:flex;flex-direction:column;gap:16px;padding:40px 0;border-bottom:1px solid #dddddd">
+<h3 style="font-family:'Inter Tight',sans-serif;font-weight:400;font-size:28px;line-height:1.2;color:#181d26">Mobile Design for Always On Functionality</h3>
+<p>Mobile became a core requirement in order for CSMs to stay connected to alerts that may highlight the need for immediate action.</p>
+<p>A new mobile project was started on top of the large backlog of items we were currently working through. We needed a simple starting point to leverage existing patterns and platform conventions where ever possible and to organize mocks in a way that streamlined discussions.</p>
+<p>To that end, I created a combination prototype and sitemap. Team members could either click through the mobile prototype and see where in the app structure that page was (by following the highlights) OR jump immediately to a page being discussed by clicking on a page in the sitemap.</p>
+<p>After getting buy-in on the structure, navigation, and content, I created spec docs for engineers to call out specific layout nuances, icons, colors, etc.</p>
+<div style="aspect-ratio:16/8"><image-slot auto-ratio="" id="ai-oracle-mobile" src="assets/slots/ai-oracle-mobile.webp" placeholder="Mobile prototype + sitemap" radius="10"></image-slot></div>
+</div>
+<div data-ch="8" style="display:flex;flex-direction:column;gap:16px;padding:40px 0;border-bottom:1px solid #dddddd">
+<h3 style="font-family:'Inter Tight',sans-serif;font-weight:400;font-size:28px;line-height:1.2;color:#181d26">Value Added. Lessons Learned</h3>
+<p>App adoption went from 0 to 4000 users in a little over a year after different groups at Oracle (Sales, Operations, etc.) found that they could access customer 360 data very quickly with CLM.</p>
+<p><strong>The consensus was that CLM provided a solid foundation for growth and created improvements in:</strong></p>
+<ul style="padding-left:20px">
+<li>Onboarding</li>
+<li>Fast access to customer data</li>
+<li>Almost real-time connectivity to customer events and usage</li>
+</ul>
+</div>
+</div>
+<div style="padding:32px 0 40px;display:flex;justify-content:flex-end">
+<div onClick="{{ nextCase }}" style="cursor:pointer;background:#181d26;color:#ffffff;font-size:16px;font-weight:500;padding:14px 22px;border-radius:12px;white-space:nowrap">{{ nextCaseLabel }}</div>
+</div>
+</div>
+</div>
+</div>
+</sc-if>
+<div style="height:96px"></div>
+</div>
+<dc-import name="SiteFooter" hint-size="100%,90px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const CS = {
+  netflix: ['Grounded Decision-Making','Research & User Themes','IA Redesign','Mapping Flows','Patterns and Prototyping','Context Aware AI Assistants','Combining Assistants, Agents, & Workflows','Decisions and Trade-offs'],
+  sixsense: ['Research and Take-aways','Ideation','Pricing Models','Project Foundations','Node Panel Designs','Go-to-Market Templates','Alpha, Beta, and Usability Testing','Value Added. Lessons Learned.'],
+  oracle: ['Research and Take-aways','Starting Points','Monetization Model','MVP Use Case #1','MVP Use Case #2','MVP Use Case #3','Connecting Partners','Mobile Design','Value Added. Lessons Learned'],
+};
+const ORDER = ['netflix','sixsense','oracle'];
+const TITLES = { netflix: 'Netflix Customer Service Observability', sixsense: '6sense Marketing Automation', oracle: 'Oracle New Platform for Ops & CSMs' };
+class Component extends DCLogic {
+  state = { cs: 'netflix', ch: 0 };
+  componentDidMount() {
+    this.readHash = () => { const h = location.hash.slice(1); if (CS[h]) this.setState({ cs: h, ch: 0 }); };
+    this.readHash();
+    window.addEventListener('hashchange', this.readHash);
+    this.onScroll = () => {
+      if (this.raf) return;
+      this.raf = requestAnimationFrame(() => {
+        this.raf = 0;
+        let cur = 0;
+        document.querySelectorAll('[data-ch]').forEach(e => { if (e.getBoundingClientRect().top < 160) cur = +e.dataset.ch; });
+        if (cur !== this.state.ch) this.setState({ ch: cur });
+      });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+  }
+  jump(i) {
+    const e = document.querySelector('[data-ch="' + i + '"]');
+    if (e) window.scrollTo({ top: e.getBoundingClientRect().top + window.scrollY - 8, behavior: 'smooth' });
+  }
+  componentWillUnmount() { window.removeEventListener('hashchange', this.readHash); window.removeEventListener('scroll', this.onScroll); if (this.raf) cancelAnimationFrame(this.raf); }
+  pick(cs) { this.setState({ cs, ch: 0 }); history.replaceState(null, '', '#' + cs); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  renderVals() {
+    const { cs, ch } = this.state;
+    const names = CS[cs];
+    const last = ch >= names.length - 1;
+    const nextCs = ORDER[(ORDER.indexOf(cs) + 1) % ORDER.length];
+    const v = {
+      csA: cs === 'netflix', csB: cs === 'sixsense', csC: cs === 'oracle',
+      pickA: () => this.pick('netflix'), pickB: () => this.pick('sixsense'), pickC: () => this.pick('oracle'),
+      nextCase: () => this.pick(nextCs),
+      nextCaseLabel: 'Next case study: ' + TITLES[nextCs] + ' →',
+    };
+    ['A','B','C'].forEach((k, i) => {
+      const on = ORDER[i] === cs;
+      v['card' + k] = on ? '#ffffff' : '#f8fafc';
+      v['border' + k] = on ? '#181d26' : '#dddddd';
+    });
+    for (let i = 0; i < 9; i++) {
+      v['s' + i] = ch === i;
+      v['k' + i] = ch === i ? '#ffffff' : 'transparent';
+      v['d' + i] = ch === i ? '#dddddd' : 'transparent';
+      v['go' + i] = () => this.jump(i);
+    }
+    return v;
+  }
+}
+</script>
+</body>
+</html>

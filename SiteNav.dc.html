@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div style="height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;border-bottom:1px solid #dddddd;background:#ffffff;font-family:Inter,-apple-system,'Segoe UI',sans-serif">
+<a href="Home.dc.html" style="font-family:'Inter Tight',sans-serif;font-size:18px;font-weight:500;color:#181d26;text-decoration:none">David Garrett</a>
+<div style="display:flex;gap:24px;align-items:center;font-size:14px">
+<a href="Home.dc.html#case-studies" style="color:#181d26;text-decoration:none;font-weight:{{ wCases }};border-bottom:2px solid {{ bCases }};padding:6px 0">Case Studies</a>
+<a href="My-Approach.dc.html" style="color:#181d26;text-decoration:none;font-weight:{{ wApproach }};border-bottom:2px solid {{ bApproach }};padding:6px 0">My Approach</a>
+<a href="CV.dc.html" style="color:#181d26;text-decoration:none;font-weight:500;border:1px solid {{ bCv }};border-radius:6px;padding:8px 14px">CV</a>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:64},&quot;active&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;cases&quot;,&quot;approach&quot;,&quot;cv&quot;,&quot;&quot;],&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const a = this.props.active ?? '';
+    return {
+      wCases: a === 'cases' ? 500 : 400, bCases: a === 'cases' ? '#181d26' : 'transparent',
+      wApproach: a === 'approach' ? 500 : 400, bApproach: a === 'approach' ? '#181d26' : 'transparent',
+      bCv: a === 'cv' ? '#181d26' : '#dddddd',
+    };
+  }
+}
+</script>
+</body>
+</html>
