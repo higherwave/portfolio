@@ -36,6 +36,7 @@
     const img = document.createElement('img');
     img.src = src; img.alt = alt;
     img.style.cssText = 'max-width:100%;max-height:calc(100vh - 160px);object-fit:contain;border-radius:10px;background:#ffffff;box-shadow:0 24px 64px rgba(0,0,0,.4);cursor:default';
+    img.addEventListener('load', () => { img.style.maxWidth = 'min(100%, ' + img.naturalWidth + 'px)'; img.style.maxHeight = 'min(calc(100vh - 160px), ' + img.naturalHeight + 'px)'; });
     img.addEventListener('click', (e) => e.stopPropagation());
     o.append(btn, img);
     if (alt) {
