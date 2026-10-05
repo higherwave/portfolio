@@ -256,10 +256,10 @@
   // raw upload. Longest side is capped at 2× the slot's rendered width
   // (retina) and at MAX_DIM. WebP keeps alpha and is ~10× smaller than PNG
   // for photos, so there's no need for per-image format picking.
-  async function toDataUrl(file, targetW) {
+  async function toDataUrl(file, targetW, maxRes) {
     const bitmap = await createImageBitmap(file);
     try {
-      const cap = Math.min(MAX_DIM, Math.max(1, Math.round(targetW * 2)) || MAX_DIM);
+      const cap = maxRes > 0 ? maxRes : Math.min(MAX_DIM, Math.max(1, Math.round(targetW * 2)) || MAX_DIM);
       const scale = Math.min(1, cap / Math.max(bitmap.width, bitmap.height));
       const w = Math.max(1, Math.round(bitmap.width * scale));
       const h = Math.max(1, Math.round(bitmap.height * scale));
@@ -907,7 +907,7 @@
       }
       try {
         const w = this.clientWidth || this.offsetWidth || MAX_DIM;
-        const url = await toDataUrl(file, w);
+        const url = await toDataUrl(file, w, parseInt(this.getAttribute('max-res'), 10) || 0);
         if (gen !== this._gen) return;
         // Only exit reframe once the new image is in hand — a rejected type
         // or decode failure leaves the in-progress crop untouched.
