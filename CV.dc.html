@@ -21,6 +21,8 @@ a:hover{color:#1a3866}
 p,h1,h2,h3,ul,ol{margin:0}
 li{margin:4px 0}
 strong{font-weight:500;color:#181d26}
+/* The certification badges are fixed images, not drop zones: no dashed edit outline around them. */
+image-slot[id^="cv-badge"]::part(ring){display:none}
 </style>
 </helmet>
 <div style="min-height:100vh;display:flex;flex-direction:column;overflow-x:clip">
